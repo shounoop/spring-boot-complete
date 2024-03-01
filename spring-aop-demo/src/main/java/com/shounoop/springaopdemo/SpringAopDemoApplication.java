@@ -11,7 +11,7 @@ public class SpringAopDemoApplication {
         ApplicationContext context = new AnnotationConfigApplicationContext(BeanConfig.class);
 
         ShoppingCart shoppingCart = context.getBean(ShoppingCart.class);
-        shoppingCart.checkout();
+        shoppingCart.checkout("CANCELLED");
     }
 
 }
