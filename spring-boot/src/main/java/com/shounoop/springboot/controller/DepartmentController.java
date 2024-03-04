@@ -1,6 +1,7 @@
 package com.shounoop.springboot.controller;
 
 import com.shounoop.springboot.entity.Department;
+import com.shounoop.springboot.error.DepartmentNotFoundException;
 import com.shounoop.springboot.service.DepartmentService;
 import jakarta.validation.Valid;
 import org.slf4j.Logger;
@@ -32,7 +33,7 @@ public class DepartmentController {
     }
 
     @GetMapping("/departments/{id}")
-    public Department fetchDepartmentById(@PathVariable("id") Long departmentId) {
+    public Department fetchDepartmentById(@PathVariable("id") Long departmentId) throws DepartmentNotFoundException {
         return departmentService.fetchDepartmentById(departmentId);
     }
 
