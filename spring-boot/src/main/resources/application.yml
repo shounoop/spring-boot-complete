@@ -42,6 +42,12 @@ spring:
 welcome:
   message: Welcome to Shounoop!!
 
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+        exclude: "env,beans"
 ---
 
 spring:
