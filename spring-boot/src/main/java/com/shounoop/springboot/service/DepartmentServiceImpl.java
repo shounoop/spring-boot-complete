@@ -1,11 +1,13 @@
 package com.shounoop.springboot.service;
 
 import com.shounoop.springboot.entity.Department;
+import com.shounoop.springboot.error.DepartmentNotFoundException;
 import com.shounoop.springboot.repository.DepartmentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class DepartmentServiceImpl implements DepartmentService {
@@ -23,8 +25,14 @@ public class DepartmentServiceImpl implements DepartmentService {
     }
 
     @Override
-    public Department fetchDepartmentById(Long id) {
-        return departmentRepository.findById(id).get();
+    public Department fetchDepartmentById(Long id) throws DepartmentNotFoundException {
+        Optional<Department> department = departmentRepository.findById(id);
+
+        if (!department.isPresent()) {
+            throw new DepartmentNotFoundException("Department not available");
+        }
+
+        return department.get();
     }
 
     @Override
