@@ -25,7 +25,7 @@ public interface StudentRepository extends JpaRepository<Student, Long> {
     @Query("select s from Student s where s.emailId = ?1")
     Student getStudentByEmailAddress(String emailId);
 
-    // JPQL
+    // JPQL (Java Persistence Query Language)
     @Query("select s.firstName from Student s where s.emailId = ?1")
     String getStudentFirstNameByEmailAddress(String emailId);
 
