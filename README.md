@@ -36,4 +36,5 @@
 - Implementing Complete registration and Login flow with Email validation
 
 ### Spring data JPA
-![image](https://github.com/shounoop/spring-boot-complete/assets/85869774/00352530-dfb2-4f99-97d1-88c170881bdc)
+![schooldb-diagram](https://github.com/shounoop/spring-boot-complete/assets/85869774/5f992c5f-d53f-48a0-8c55-a4d39595eeee)
+
