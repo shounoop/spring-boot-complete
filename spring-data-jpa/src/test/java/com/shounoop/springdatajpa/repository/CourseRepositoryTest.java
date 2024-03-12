@@ -1,6 +1,7 @@
 package com.shounoop.springdatajpa.repository;
 
 import com.shounoop.springdatajpa.entity.Course;
+import com.shounoop.springdatajpa.entity.Student;
 import com.shounoop.springdatajpa.entity.Teacher;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -71,5 +72,18 @@ class CourseRepositoryTest {
         List<Course> courses = courseRepository.findByTitleContaining("D", firstPageTenRecords).getContent();
 
         System.out.println("courses = " + courses);
+    }
+
+    @Test
+    public void saveCourseWithStudentsAndTeacher() {
+        Teacher teacher = Teacher.builder().firstName("Priyanka").lastName("Singh").build();
+
+        Course course = Course.builder().title("AI").credit(12).teacher(teacher).build();
+
+        Student student = Student.builder().firstName("Raj").lastName("Kumar").emailId("raj@gmail.com").build();
+
+        course.addStudents(student);
+
+        courseRepository.save(course);
     }
 }
